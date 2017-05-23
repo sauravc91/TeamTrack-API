@@ -1,0 +1,106 @@
+{
+	"variables": [],
+	"info": {
+		"name": "TeamTrack",
+		"_postman_id": "927fde17-2500-7fef-e6aa-08619a0d23bb",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Users",
+			"request": {
+				"url": "localhost:3000/api/createUser",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Saurav Chatterjee\",\n\t\"userName\":\"sauravc\",\n\t\"password\":\"12345\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Task",
+			"request": {
+				"url": "localhost:3000/api/createTask",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{    \n\t\"Title\": \"Some title\",\n\t\"Description\": \"Some Description\",\n\t\"TaskType\": \"Service Ticket\",\n\t\"TaskReferenceID\": \"SR0001\",\n\t\"EstimatedStartDate\": \"Tue May 23 2017 12:47:04 GMT+0530 (India Standard Time)\",\n\t\"EstimatedEndDate\": \"Tue May 23 2017 12:47:04 GMT+0530 (India Standard Time)\",\n\t\"ActualStartDate\": \"Tue May 23 2017 12:47:04 GMT+0530 (India Standard Time)\",\n\t\"ActualEndDate\": \"Tue May 23 2017 12:47:04 GMT+0530 (India Standard Time)\",\n\t\"CreatedAt\": \"Tue May 23 2017 12:47:04 GMT+0530 (India Standard Time)\",\n\t\"UpdatedAt\": \"Tue May 23 2017 12:47:04 GMT+0530 (India Standard Time)\",\n\t\"CreatedBy\": \"user3\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Tasks",
+			"request": {
+				"url": "localhost:3000/api/getTasks",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Task by ID",
+			"request": {
+				"url": "localhost:3000/api/getTask/592400ae0ff6fc16302624d4",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task",
+			"request": {
+				"url": "localhost:3000/api/deleteTask/5923f470b8f80c123c606994",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users",
+			"request": {
+				"url": "localhost:3000/api/getUsers",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"url": "localhost:3000",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
