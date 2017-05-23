@@ -1,0 +1,17 @@
+{
+  "name": "teamtrackerapi",
+  "version": "0.0.1",
+  "description": "API for Team tracker application",
+  "main": "server.js",
+  "author": "Saurav Chatterjee",
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "debug": "^2.6.1",
+    "express": "^4.13.4",
+    "jsonwebtoken": "^7.3.0",
+    "mailgun-js": "^0.8.2",
+    "method-override": "^2.1.3",
+    "mongoose": "^4.8.4",
+    "morgan": "^1.1.1"
+  }
+}
