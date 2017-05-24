@@ -85,7 +85,13 @@
 			"request": {
 				"url": "localhost:3000/api/getUsers",
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OTI0MDA5YTBmZjZmYzE2MzAyNjI0ZDMiLCJOYW1lIjoiU2F1cmF2IENoYXR0ZXJqZWUiLCJVc2VyTmFtZSI6InNhdXJhdmMiLCJfX3YiOjAsImlhdCI6MTQ5NTU0MjExOSwiZXhwIjoxNDk1NTQzMzE5fQ.r9B2KS0gkdOS4qPUiMgpowBOkUkdokAH0vRA3C9rV0k",
+						"description": ""
+					}
+				],
 				"body": {},
 				"description": ""
 			},
@@ -94,10 +100,50 @@
 		{
 			"name": "Delete User",
 			"request": {
-				"url": "localhost:3000",
+				"url": "localhost:3000/api/deleteUser/5924009a0ff6fc16302624d3",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate User",
+			"request": {
+				"url": "localhost:3000/api/authenticateUser",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\" : \"sauravc\",\n\t\"password\": \"12345\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"url": "localhost:3000/api/updateUser/59254487f2b1fd1bdce576f1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Prashanth N\",\n\t\"userName\":\"prashanthn\",\n\t\"password\":\"12345\"\n}"
+				},
 				"description": ""
 			},
 			"response": []

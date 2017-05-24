@@ -6,7 +6,7 @@ var Tasks = require('./models/tasks');
 function getUsers(res){
     Users.find(function (err, users) {
         if (err) {
-            res.send(err);
+            res.status(500).send(err);
         }
         res.json(users);
     });
@@ -42,7 +42,7 @@ module.exports = function (app) {
             UserName: req.body.userName
         }, function(err, user) {
 
-        if (err) throw err;
+        if (err) res.status(500).send(err);
 
         if (!user) {
           res.json({ success: false, message: 'Authentication failed. User not found.' });
@@ -68,24 +68,24 @@ module.exports = function (app) {
     });
 	
 	//Router Middle-ware for Authentication
-    app.use(function(req, res, next) {
-        var token = req.body.token || req.headers['x-access-token'];
-        if (token) {
-            jwt.verify(token, 'imsaurav', function(err, decoded) {          
-            if (err) {
-                return res.json({ success: false, message: 'Failed to authenticate token.' });      
-            } else {
-                req.decoded = decoded;  
-                next();
-            }
-            });
-        } else {
-            return res.status(403).send({ 
-            success: false, 
-            message: 'No Authentication token provided.'
-            });
-        }
-    });
+    // app.use(function(req, res, next) {
+    //     var token = req.body.token || req.headers['x-access-token'];
+    //     if (token) {
+    //         jwt.verify(token, 'imsaurav', function(err, decoded) {          
+    //         if (err) {
+    //             return res.json({ success: false, message: 'Failed to authenticate token.' });      
+    //         } else {
+    //             req.decoded = decoded;  
+    //             next();
+    //         }
+    //         });
+    //     } else {
+    //         return res.status(403).send({ 
+    //         success: false, 
+    //         message: 'No Authentication token provided.'
+    //         });
+    //     }
+    // });
 
 	//API call to create user
     app.post('/api/createUser', function (req, res) {
@@ -95,7 +95,7 @@ module.exports = function (app) {
             Password: req.body.password
         }, function (err, user) {
             if (err)
-                res.send(err);
+                res.status(500).send(err);
             res.status(200).json({
               success: true,
               message: 'User Creation Successfull!',
@@ -103,12 +103,35 @@ module.exports = function (app) {
             });
         });
     });
+
+    //API call to update users
+    app.put('/api/UpdateUser/:id', function (req, res) {
+        Users.findById(req.params.id, function (err, user) {      
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                user.UserName = user.userName;
+                user.Name = req.body.name || user.name;
+                user.Password = req.body.password || user.password
+                
+                user.save(function (err, user) {
+                    if (err) {
+                        res.status(500).send(err);
+                    }
+                    res.status(200).json({
+                    success: true,
+                    message: 'User Updation Successfull!'
+                    });
+                });
+            }
+        });
+    });
 	
 	//API call to get users
 	app.get('/api/getUsers', function (req, res) {
         Users.find({},{Name: "1", UserName: "1"},function (err, users) {
             if (err)
-                res.send(err);
+                res.status(500).send(err);
 				
 			res.status(200).json({
               success: true,
@@ -121,7 +144,7 @@ module.exports = function (app) {
 	app.delete('/api/deleteUser/:id', function (req, res) {
         Users.remove({_id:req.params.id},function (err, users) {
             if (err)
-                res.send(err);
+                res.status(500).send(err);
             res.status(200).json({
               success: true,
               message: 'User Deletion Successfull!',
@@ -145,7 +168,7 @@ module.exports = function (app) {
 			CreatedBy: req.body.CreatedBy
 		}, function (err, task) {
             if (err)
-                res.send(err);
+                res.status(500).send(err);
             res.status(200).json({
               success: true,
               message: 'Task Creation Successfull!',
@@ -158,7 +181,7 @@ module.exports = function (app) {
 	app.get('/api/getTasks', function (req, res) {
         Tasks.find(function (err, tasks) {
             if (err)
-                res.send(err);
+                res.status(500).send(err);
 			res.status(200).json({
               success: true,
               Tasks: tasks
@@ -170,7 +193,7 @@ module.exports = function (app) {
 	app.get('/api/getTask/:id', function (req, res) {
         Tasks.findOne({_id:req.params.id},function (err, task) {
             if (err)
-                res.send(err);
+                res.status(500).send(err);
             res.status(200).json({
               success: true,
               Task: task
@@ -182,14 +205,12 @@ module.exports = function (app) {
 	app.delete('/api/deleteTask/:id', function (req, res) {
         Tasks.remove({_id:req.params.id},function (err, tasks) {
             if (err)
-                res.send(err);
+                res.status(500).send(err);
             res.status(200).json({
               success: true,
               message: 'Task Deletion Successfull!',
             });
         });
-    });
-
-    
+    });    
 
 };
