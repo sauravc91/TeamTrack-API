@@ -1,3 +1,6 @@
+var jwt = require('jsonwebtoken');
+var Users = require('../models/users');
+
 module.exports = function(app){
 
     //Verify API call
