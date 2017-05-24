@@ -30,7 +30,7 @@ module.exports = function (app) {
 
     //Verify API call
     app.get('/',function(req,res){
-		res.json({
+		res.status(200).json({
               success: true,
               message: 'Welcome to the TeamTrack API!',
             });
@@ -57,7 +57,7 @@ module.exports = function (app) {
               expiresIn : 1200
             });
 
-            res.json({
+            res.status(200).json({
               success: true,
               message: 'Login Successfull!',
               token: token
@@ -96,7 +96,7 @@ module.exports = function (app) {
         }, function (err, user) {
             if (err)
                 res.send(err);
-            res.json({
+            res.status(200).json({
               success: true,
               message: 'User Creation Successfull!',
               createdUserID: user._id
@@ -110,7 +110,7 @@ module.exports = function (app) {
             if (err)
                 res.send(err);
 				
-			res.json({
+			res.status(200).json({
               success: true,
               Users: users
             });
@@ -122,7 +122,7 @@ module.exports = function (app) {
         Users.remove({_id:req.params.id},function (err, users) {
             if (err)
                 res.send(err);
-            res.json({
+            res.status(200).json({
               success: true,
               message: 'User Deletion Successfull!',
             });
@@ -146,7 +146,7 @@ module.exports = function (app) {
 		}, function (err, task) {
             if (err)
                 res.send(err);
-            res.json({
+            res.status(200).json({
               success: true,
               message: 'Task Creation Successfull!',
               craetedTaskID: task._id
@@ -159,7 +159,7 @@ module.exports = function (app) {
         Tasks.find(function (err, tasks) {
             if (err)
                 res.send(err);
-			res.json({
+			res.status(200).json({
               success: true,
               Tasks: tasks
             });
@@ -171,7 +171,7 @@ module.exports = function (app) {
         Tasks.findOne({_id:req.params.id},function (err, task) {
             if (err)
                 res.send(err);
-            res.json({
+            res.status(200).json({
               success: true,
               Task: task
             });
@@ -183,7 +183,7 @@ module.exports = function (app) {
         Tasks.remove({_id:req.params.id},function (err, tasks) {
             if (err)
                 res.send(err);
-            res.json({
+            res.status(200).json({
               success: true,
               message: 'Task Deletion Successfull!',
             });
