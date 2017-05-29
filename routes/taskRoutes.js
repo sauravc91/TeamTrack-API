@@ -15,7 +15,9 @@ module.exports = function (app) {
 			ActualEndDate: req.body.ActualEndDate,
 			CreatedAt: req.body.CreatedAt,
 			UpdatedAt: req.body.UpdatedAt,
-			CreatedBy: req.body.CreatedBy
+			CreatedBy: req.body.CreatedBy,
+            Status: req.body.Status,
+            TaskDetails: req.body.TaskDetails
 		}, function (err, task) {
             if (err)
                 res.status(500).send(err);

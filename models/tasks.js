@@ -11,7 +11,13 @@ module.exports = mongoose.model('Tasks', {
 	ActualEndDate: Date,
 	CreatedAt: Date,
 	UpdatedAt: Date,
-	CreatedBy: String
+	CreatedBy: String,
+	Status: String,
+	TaskDetails: [{
+		TaskTitle: String,
+		TaskHoursSpent: String,
+		TaskDescription:String
+	}]
 });
 
 
