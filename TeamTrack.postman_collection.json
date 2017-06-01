@@ -163,7 +163,7 @@
 		{
 			"name": "Update User",
 			"request": {
-				"url": "localhost:3000/api/updateUser/59254487f2b1fd1bdce576f1",
+				"url": "localhost:3000/api/updateUser/59303a93cf605b279099ef2f",
 				"method": "PUT",
 				"header": [
 					{
@@ -174,7 +174,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\":\"Prashanth N\",\n\t\"userName\":\"prashanthn\",\n\t\"password\":\"12345\"\n}"
+					"raw": "{\n\t\"firstName\": \"Saurav\",\n\t\"lastName\": \"Mukherjee\",\n\t\"userName\": \"sauravc\",\n\t\"password\": \"12345\",\n\t\"isActive\": false\n}"
 				},
 				"description": ""
 			},

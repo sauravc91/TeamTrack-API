@@ -26,17 +26,22 @@ module.exports = function(app){
           if (user.Password != req.body.password) {
             res.json({ success: false, message: 'Authentication failed. Wrong password.' });
           } else {
-            var tokenizeObj=user.toObject();
-            delete tokenizeObj.Password;
-            var token = jwt.sign(tokenizeObj, 'imsaurav', {
-              expiresIn : 1200
-            });
+            if(user.IsActive==true){
+              var tokenizeObj=user.toObject();
+              delete tokenizeObj.Password;
+              var token = jwt.sign(tokenizeObj, 'imsaurav', {
+                expiresIn : 1200
+              });
 
-            res.status(200).json({
-              success: true,
-              message: 'Login Successfull!',
-              token: token
-            });
+              res.status(200).json({
+                success: true,
+                message: 'Login Successfull!',
+                token: token
+              });
+            }
+            else{
+              res.status(403).json({ success: false, message: 'Authentication failed! User is inactive.' });
+            }
           }
         }
       });

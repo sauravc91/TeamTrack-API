@@ -28,9 +28,11 @@ module.exports = function (app) {
             if (err) {
                 res.status(500).send(err);
             } else {
-                user.UserName = user.userName;
-                user.Name = req.body.name || user.name;
-                user.Password = req.body.password || user.password
+                user.FirstName = req.body.firstName;
+                user.LastName = req.body.lastName;
+                user.UserName = req.body.userName;
+                user.Password = req.body.password;
+                user.IsActive = req.body.isActive;
                 
                 user.save(function (err, user) {
                     if (err) {
