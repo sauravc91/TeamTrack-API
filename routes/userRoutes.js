@@ -5,9 +5,12 @@ module.exports = function (app) {
     //Create User
     app.post('/api/createUser', function (req, res) {
         Users.create({
-            Name: req.body.name,
+            FirstName: req.body.firstName,
+            LastName: req.body.lastName,
             UserName: req.body.userName,
-            Password: req.body.password
+            Password: req.body.password,
+            IsActive: false,
+            CreatedAt: new Date()
         }, function (err, user) {
             if (err)
                 res.status(500).send(err);
@@ -44,7 +47,7 @@ module.exports = function (app) {
 	
 	//Get Users
 	app.get('/api/getUsers', function (req, res) {
-        Users.find({},{Name: "1", UserName: "1"},function (err, users) {
+        Users.find({},{FirstName: "1", LastName:"1", UserName: "1", IsActive: "1"},function (err, users) {
             if (err)
                 res.status(500).send(err);
 				

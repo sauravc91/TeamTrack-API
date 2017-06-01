@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "TeamTrack",
-		"_postman_id": "927fde17-2500-7fef-e6aa-08619a0d23bb",
+		"_postman_id": "aa69ef84-ff61-f617-69fa-b2c0ec987d8e",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -21,7 +21,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\":\"Saurav Chatterjee\",\n\t\"userName\":\"sauravc\",\n\t\"password\":\"12345\"\n}"
+					"raw": "{\n\t\"firstName\": \"Saurav\",\n\t\"lastName\": \"Chatterjee\",\n\t\"userName\": \"sauravc\",\n\t\"password\": \"12345\"\n}"
 				},
 				"description": ""
 			},
@@ -64,7 +64,10 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
@@ -81,7 +84,10 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
@@ -92,7 +98,10 @@
 				"url": "localhost:3000/api/deleteTask/5923f470b8f80c123c606994",
 				"method": "DELETE",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
@@ -109,7 +118,10 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
@@ -120,7 +132,10 @@
 				"url": "localhost:3000/api/deleteUser/5924009a0ff6fc16302624d3",
 				"method": "DELETE",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
