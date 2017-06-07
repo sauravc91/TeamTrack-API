@@ -15,7 +15,7 @@ module.exports = function (app) {
     })){
 
         //Check for role in user object or else throw 403
-        return res.status(200).json({
+        return res.status(403).json({
             success: false,
             message: 'Access Denied'
         });

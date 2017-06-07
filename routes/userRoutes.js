@@ -1,4 +1,5 @@
 var Users = require('../models/users');
+var mailClient = require ('../routes/emailSender.js');
 
 module.exports = function (app) {
 
@@ -14,6 +15,9 @@ module.exports = function (app) {
         }, function (err, user) {
             if (err)
                 res.status(500).send(err);
+
+            mailClient.sendMail(user.FirstName,user.UserName,user.Password);
+
             res.status(200).json({
               success: true,
               message: 'User Creation Successfull!',
