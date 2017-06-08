@@ -10,7 +10,8 @@ module.exports = function (app) {
             LastName: req.body.lastName,
             UserName: req.body.userName,
             Password: req.body.password,
-            IsActive: false,
+            Role: req.body.role ? req.body.role : 'E',            
+            IsActive: req.body.role ? true : false,
             CreatedAt: new Date()
         }, function (err, user) {
             if (err)
@@ -35,7 +36,6 @@ module.exports = function (app) {
                 user.FirstName = req.body.firstName;
                 user.LastName = req.body.lastName;
                 user.UserName = req.body.userName;
-                user.Password = req.body.password;
                 user.IsActive = req.body.isActive;
                 
                 user.save(function (err, user) {
