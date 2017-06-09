@@ -1,5 +1,6 @@
 var jwt = require('jsonwebtoken');
 var Users = require('../models/users');
+var btoa = require('btoa');
 
 module.exports = function(app){
 
@@ -27,6 +28,7 @@ module.exports = function(app){
             res.json({ success: false, message: 'Authentication failed. Wrong password.' });
           } else {
             if(user.IsActive==true){
+              user.Role=btoa(user.Role);
               var tokenizeObj=user.toObject();
               delete tokenizeObj.Password;
               var token = jwt.sign(tokenizeObj, 'imsaurav', {

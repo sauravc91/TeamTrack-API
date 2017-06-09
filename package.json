@@ -6,6 +6,7 @@
   "author": "Saurav Chatterjee",
   "dependencies": {
     "body-parser": "^1.4.3",
+    "btoa": "^1.1.2",
     "debug": "^2.6.1",
     "express": "^4.13.4",
     "jsonwebtoken": "^7.3.0",
